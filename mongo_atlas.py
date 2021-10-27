@@ -12,20 +12,7 @@ db = client.fifadb
 Collection = db.fifa
 Collection.drop()
 
-with open("Resources/FIFA_df_final.json") as file:
+with open("Resources/FIFA_random_sample.json") as file:
     file_data = json.load(file)
 
 Collection.insert_one(file_data)
-
-Collection = db.finaldata
-Collection.drop()
-
-with open("final_data.json") as file:
-    file_data = json.load(file)
-
-Collection.insert_one(file_data)
-
-
-
-
-
