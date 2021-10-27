@@ -11,6 +11,10 @@
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <!-- d3-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"
+    integrity="sha512-L5K9Bf852XyB+wrvRFGwWzfhVI+TZqJlgwzX9yvrfhILuzIZfrcQO4au9D9eVDnkQ6oqYr9v2QwJdFo+eKE50Q=="
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -43,15 +47,20 @@
     </header>
     <!-- Features section-->
     <section id="attributes" class="py-5">
-        <form method='post' action='/send' role='form' >
+        <form method='post' action='/predict' role='form' >
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <h2>Machine Learning with FIFA22</h2>
-                    <p class="lead">Using Machine Learning to predict Overall Rating based on 6 defining player
-                        attributes</p>
+                    <h3>Select Player</h3>
+                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                    <p class="lead">Player's current Overall Rating, Value (Eur), Wage(Eur), & Release Clause based on 6 defining player attributes</p>
                     <p></p>
-                    <p class="mb-0">Select Attributes Below:</p>
+                    <p class="mb-0">Display Current Results Here</p>
+                    <p></p>
+                    <p class="lead">Using Machine Learning to predict Ratings based on attributes changes</p>
+                    <p></p>
+                    <p class="mb-0">Select Attributes to Update Below:</p>
                     <p></p>
                     <div class="row">
                         <div class="col-md-2">
@@ -227,11 +236,11 @@
                     <p></p>
                     <div class="row">
                         <div class="col-md-12">
-                            <input class="btn btn-primary btn-lg" type='submit' value='Find Overall Score'>
+                            <input class="btn btn-primary btn-lg" type='submit' value='Find Updated Ratings'>
                         </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <p class="mb-0">Display Results Here</p>
+                            <p class="mb-0">Display New Results Here</p>
                         </div>
                     </div>
                 </div>
@@ -270,6 +279,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="../static/js/scripts.js"></script>
+    <!-- Players JS-->
+   <script src="../static/js/app.js"></script>
 </body>
 
 </html>
