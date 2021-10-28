@@ -88,7 +88,7 @@ The data source for model developement can be found [here](https://www.kaggle.co
 
 * Standard scaler applied to data
 
-* Random Forest Classifier and Random Forest Regressor models with standard parameters were tested
+* Random Forest Classifier and Random Forest Regressor models were tested
 
 * Random Forest Model Regressor selected based upon high test score (97.5%)
 
