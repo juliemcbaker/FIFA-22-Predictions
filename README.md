@@ -37,39 +37,39 @@ The data source for model developement can be found [here](https://www.kaggle.co
 **Attributes used in Model**
 
 >* Age - Player age in years
->*Height - Player height in cm 
-Weight - Player weight in kg 
-WeakFoot - Player's rating of usage for non-dominant foot (scale of 1-5)
-SkillMoves - Player's skilled moves rating (scale 1-5)
-AttackingWorkRate - "Other, Medium, High" (converted to scale of 1-3)
-DefensiveWorkRate - "Other, Medium, High" (onverted to scale of 1-3)
-PaceTotal - scale of 1-100
-ShootingTotal - scale of 1-100
-PassingTotal - scale of 1-100
-DribblingTotal - scale of 1-100
-DefendingTotal - scale of 1-100
-PhysicalityTotal - scale of 1-100
-Crossing - scale of 1-100
-HeadingAccuracy - scale of 1-100
-ShortPassing - scale of 1-100
-Volleys - scale of 1-100
-Curve - scale of 1-100
-FKAccuracy - Free Kick Accuracy scale of 1-100
-LongPassing - scale of 1-100
-BallControl - scale of 1-100
-Agility - scale of 1-100
-Balance - scale of 1-100
-ShotPower - scale of 1-100
-Jumping - scale of 1-100
-Stamina - scale of 1-100
-Strength - scale of 1-100
-LongShots - scale of 1-100
-Aggression - scale of 1-100
-Interceptions - scale of 1-100
-Positioning - scale of 1-100
-Vision - scale of 1-100
-Penalties - scale of 1-100
-Composure - scale of 1-100
+>* Height - Player height in cm 
+>* Weight - Player weight in kg 
+>* WeakFoot - Player's rating of usage for non-dominant foot (scale of 1-5)
+>* SkillMoves - Player's skilled moves rating (scale 1-5)
+>* AttackingWorkRate - "Other, Medium, High" (converted to scale of 1-3)
+>* DefensiveWorkRate - "Other, Medium, High" (onverted to scale of 1-3)
+>* PaceTotal - scale of 1-100
+>* ShootingTotal - scale of 1-100
+>* PassingTotal - scale of 1-100
+>* DribblingTotal - scale of 1-100
+>* DefendingTotal - scale of 1-100
+>* PhysicalityTotal - scale of 1-100
+>* Crossing - scale of 1-100
+>* HeadingAccuracy - scale of 1-100
+>* ShortPassing - scale of 1-100
+>* Volleys - scale of 1-100
+>* Curve - scale of 1-100
+>* FKAccuracy - Free Kick Accuracy scale of 1-100
+>* LongPassing - scale of 1-100
+>* BallControl - scale of 1-100
+>* Agility - scale of 1-100
+>* Balance - scale of 1-100
+>* ShotPower - scale of 1-100
+>* Jumping - scale of 1-100
+>* Stamina - scale of 1-100
+>* Strength - scale of 1-100
+>* LongShots - scale of 1-100
+>* Aggression - scale of 1-100
+>* Interceptions - scale of 1-100
+>* Positioning - scale of 1-100
+>* Vision - scale of 1-100
+>* Penalties - scale of 1-100
+>* Composure - scale of 1-100
 
 
 ---
