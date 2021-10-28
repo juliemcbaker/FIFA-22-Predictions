@@ -29,7 +29,9 @@ The data source for model developement can be found [here](https://www.kaggle.co
 >* JavaScript
 >* HTML
 >* CSS
+>* d3.js
 >* Heroku
+
 
 ---
 ## Exploratory Data Analysis Overview
