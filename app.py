@@ -3,9 +3,12 @@ import pickle
 import numpy as np
 import pymongo
 from password import password
+import certifi
 
+
+ca=certifi.where()
 conn = f'mongodb+srv://aarvin:{password}@cluster0.j8pgj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-client = pymongo.MongoClient(conn)
+client = pymongo.MongoClient(conn, tlsCAFile=ca)
 db = client.fifadb
 
 with open('models/clr0.sav', 'rb') as f: 
@@ -28,6 +31,7 @@ def fetch():
     result_json={key:value for (key,value) in data.items() if key!='_id'}
     return jsonify(result_json)
 
+
 @app.route('/player_stats/<fullname>')
 def fetch_player(fullname):
     return_obj={}
@@ -38,22 +42,13 @@ def fetch_player(fullname):
     for each_attr in data.keys(): 
         if each_attr !='_id': 
             return_obj[each_attr]=data[each_attr][idx]
-#     result_json={key:value for (key,value) in data.items() if key!='_id'}
     return jsonify(return_obj)
 
 @app.route('/sample/<query_string>')
 @app.route('/sample<query_string>')
 def sample(query_string): 
-#     #take some input
-#     sample_input={'Defending': 85,
-#             'Composure': 90,
-#             'Positioning': 90,
-#             'BallControl': 85,
-#             'PaceTotal': 95,
-#             'ShortPassing': 90}
-#     # [#, #, #, #, #, ... #]
-#     # sample_input.values()
-    input_array=np.ndarray(34)
+    
+    input_array=np.ndarray(query_string)
     scaled_input=scaler.transform([input_array])
     # input_ary=[inputs[sample_input] if (sample_input in inputs) else 0 for sample_input in scaler]
     # input_scaled=scaler.transform([input_ary])

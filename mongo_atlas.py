@@ -17,7 +17,7 @@ db = client.fifadb
 # print())
 collection = db.fifa
 
-print(collection.find_one())
+# print(collection.find_one())
 collection.drop()
 
 with open("Resources/FIFA_random_sample.json") as file:
