@@ -36,8 +36,8 @@ The data source for model developement can be found [here](https://www.kaggle.co
 
 **Attributes used in Model**
 
-[]Age - Player age in years
-Height - Player height in cm 
+>* Age - Player age in years
+>*Height - Player height in cm 
 Weight - Player weight in kg 
 WeakFoot - Player's rating of usage for non-dominant foot (scale of 1-5)
 SkillMoves - Player's skilled moves rating (scale 1-5)
