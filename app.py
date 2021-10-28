@@ -28,10 +28,22 @@ def fetch():
     result_json={key:value for (key,value) in data.items() if key!='_id'}
     return jsonify(result_json)
 
+@app.route('/player_stats/<fullname>')
+def fetch_player(fullname):
+    return_obj={}
+    data=db.fifa.find_one()
+    for idx, value in data['FullName'].items(): 
+        if value==fullname: 
+            break
+    for each_attr in data.keys(): 
+        if each_attr !='_id': 
+            return_obj[each_attr]=data[each_attr][idx]
+#     result_json={key:value for (key,value) in data.items() if key!='_id'}
+    return jsonify(return_obj)
 
-# @app.route('/sample/')
-# @app.route('/sample')
-# def sample_predict():
+@app.route('/sample/<query_string>')
+@app.route('/sample<query_string>')
+def sample(query_string): 
 #     #take some input
 #     sample_input={'Defending': 85,
 #             'Composure': 90,
@@ -39,18 +51,16 @@ def fetch():
 #             'BallControl': 85,
 #             'PaceTotal': 95,
 #             'ShortPassing': 90}
-#     transform_data
-#     sample_cat=sample_input[0]
-#     sample_num=sample_input[1]
-#     #transform input
-#     transformed_cat=scaler.transform([sample_cat])
-
-#     # input_ary=[inputs[sample_input] if (sample_input in inputs) else 0 for sample_input in scaler]
-#     # input_scaled=scaler.transform([input_ary])
-# 	# prediction=rfr.predict(input_scaled)
-#     #return jsonify({'input(s)': inputs, 'output': round(rfr.predict(input_scaled)[0], 2)})
-#     prediction=rfr.predict(sample_input)
-#     return sample_input
+#     # [#, #, #, #, #, ... #]
+#     # sample_input.values()
+    input_array=np.ndarray(34)
+    scaled_input=scaler.transform([input_array])
+    # input_ary=[inputs[sample_input] if (sample_input in inputs) else 0 for sample_input in scaler]
+    # input_scaled=scaler.transform([input_ary])
+	# prediction=rfr.predict(input_scaled)
+    #return jsonify({'input(s)': inputs, 'output': round(rfr.predict(input_scaled)[0], 2)})
+    prediction=rfr.predict(scaled_input)
+    return jsonify({'output': prediction[0]})
 
 
 # @app.route('/predict')
