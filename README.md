@@ -1,4 +1,4 @@
-# FIFA Player Rating | An Overall Rating Prediction ML Application
+# FIFA Player Rating | Overall Rating Prediction ML Application
 ## Julie Baker, Lydia Deterding, Aarvin Rathod, Breckin Shoemaker, & Emily Zinn
 
 ![image](https://user-images.githubusercontent.com/83254124/139167113-ee22e84a-633f-493a-b199-bf1aa89d912e.png)
