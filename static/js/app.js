@@ -24,6 +24,41 @@ function optionChanged(fullname){
     })
 }
 
+function queryFormData(){
+    var form = document.querySelector('#predictForm');
+    var data = new FormData(form);
+
+    var val = document.getElementById("selDataset").value;
+    data.append("playerName",val);
+    fetch('/predict', {
+		method: 'POST',
+		body: data,
+	}).then(function (response) {
+		if (response.ok) {
+			return response.json();
+		}
+		return Promise.reject(response);
+	}).then(function (data) {
+		console.log(data);
+	}).catch(function (error) {
+		console.warn(error);
+	}).then((predictionData)=>{
+        console.log(prediction);
+
+        //do whatever with your data
+    });
+
+}
+
+document.addEventListener('submit', function (event) {
+
+	// Prevent form from submitting to the server
+	event.preventDefault();
+
+	// Do some stuff...
+    queryFormData();
+});
+
 function prediction(){
     console.log(current_stats)
 
@@ -34,20 +69,20 @@ function prediction(){
     var skills = current_stats["SkillMoves"]
     var attack = current_stats["AttackingWorkRate"]
     var defend = current_stats["DefensiveWorkRate"]
-    var pace = current_stats["PaceTotal"] + d3.select("#input_pace").property('value')
+    var pace = parseInt(current_stats["PaceTotal"]) + parseInt(d3.select("#input_pace").property('value'))
     var shooting = current_stats["ShootingTotal"]
     var passing = current_stats["PassingTotal"]
     var dribbling = current_stats["DribblingTotal"]
-    var defendingT = current_stats["DefendingTotal"] + d3.select("#input_defend").property('value')
+    var defendingT = parseInt(current_stats["DefendingTotal"]) + parseInt(d3.select("#input_defend").property('value'))
     var physical = current_stats["PhysicalityTotal"]
     var cross = current_stats["Crossing"]
     var heading = current_stats["HeadingAccuracy"]
-    var shortpass = current_stats["ShortPassing"] + d3.select("#input_pass").property('value')
+    var shortpass = parseInt(current_stats["ShortPassing"]) + parseInt(d3.select("#input_pass").property('value'))
     var volleys = current_stats["Volleys"]
     var curve = current_stats["Curve"]
     var accuracy = current_stats["FKAccuracy"]
     var longpass = current_stats["LongPassing"]
-    var control = current_stats["BallControl"] + d3.select("#input_ball").property('value')
+    var control = parseInt(current_stats["BallControl"]) + parseInt(d3.select("#input_ball").property('value'))
     var agility = current_stats["Agility"]
     var balance = current_stats["Balance"]
     var shot = current_stats["ShotPower"]
@@ -57,11 +92,11 @@ function prediction(){
     var longshot = current_stats["LongShots"]
     var aggression = current_stats["Aggression"]
     var intercept = current_stats["Interceptions"]
-    var position = current_stats["Positioning"] + d3.select("#input_position").property('value')
+    var position = parseInt(current_stats["Positioning"]) + parseInt(d3.select("#input_position").property('value'))
     var vision = current_stats["Vision"]
     var penalties = current_stats["Penalties"]
-    var composure = current_stats["Composure"] + d3.select("#input_composure").property('value')
-
+    var composure = parseInt(current_stats["Composure"]) + parseInt(d3.select("#input_composure").property('value'))
+    console.log(composure, position, control, shortpass, cross, defendingT)
     // current_stats has 40 elements that are not sorted in the order of the X_train features
     // /prediciton endpoint takes ?param=value&param=value&param=value
     var query_string=`?Age=${age}&Height=${height}&Weight=${weight}&WeakFoot=${weak_foot}

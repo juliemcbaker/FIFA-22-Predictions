@@ -29,7 +29,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#attributes">Player Attributes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#results">Improvement</a></li>
                 </ul>
             </div>
         </div>
@@ -47,53 +47,53 @@
     </header>
     <!-- Features section-->
     <section id="attributes" class="py-5">
+        <form id="predictForm" action='/predict' >
             <div class="container my-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
                         <h2>Machine Learning with FIFA22</h2>
-                        <h3>Select Player:</h3>
-                        <select id="selDataset" onchange="optionChanged(this.value)"></select>
-                        <h4>Player's current Ratings based on 6 defining player attributes<h4>
-                            <p></p>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <div class="well">
-                                    <h5> </h5>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="well">
-                                    <h6>Overall Rating: </h6>
-                                    <p id="old_overall_rating"></p>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="well">
-                                    <h6>Value (Eur):</h6>
-                                    <p id="old_value"></p>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="well">
-                                    <h6>Wage Eur:</h6>
-                                    <p id="old_wage"></p>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="well">
-                                    <h6>Release Clause:</h6>
-                                    <p id="old_release_clause"></p>
-                                </div>
-                            </div>
-                        </div>
                         <p></p>
-                        <h4>Update attributes below to use machine learning to predict Rating changes:</h4>
+                        <br>
+                        <h5>Select Player:</h5>
+                        <p> </p>
+                        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                        <h5>Player's current Ratings based on 6 defining player attributes<h5>
+                            <p></p>
+                            <p></p>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <table class=darkTable style="width: 50%;" border="1" cellpadding="10"
+                                        align=center>
+                                        <tbody>
+                                            <tr>
+                                                <td>Overall Rating</td>
+                                                <td><p id="old_overall_rating"></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Value(Eur)</td>
+                                                <td><p id="old_value"></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wage(Eur)</td>
+                                                <td><p id="old_wage"></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Release Clause</td>
+                                                <td><p id="old_release_clause"></p></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                        <p></p>
+                        <h5>Update attributes below to use machine learning to predict Rating changes:</h5>
                         <p></p>
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="well">
                                     <h5>Defending:</h5>
-                                    <select id="input_defend">
+                                    <select name="input_defend">
+                                        <option value="0"> 0 </option>
                                         <option value="5"> 5 </option>
                                         <option value="10"> 10 </option>
                                         <option value="15"> 15 </option>
@@ -105,7 +105,8 @@
                             <div class="col-md-2">
                                 <div class="well">
                                     <h5>Composure:</h5>
-                                    <select id="input_composure">
+                                    <select name="input_composure">
+                                        <option value="0"> 0 </option>
                                         <option value="5"> 5 </option>
                                         <option value="10"> 10 </option>
                                         <option value="15"> 15 </option>
@@ -117,7 +118,8 @@
                             <div class="col-md-2">
                                 <div class="well">
                                     <h5>Positioning:</h5>
-                                    <select id="input_position">
+                                    <select name="input_position">
+                                        <option value="0"> 0 </option>
                                         <option value="5"> 5   </option>
                                         <option value="10"> 10 </option>
                                         <option value="15"> 15 </option>
@@ -129,7 +131,8 @@
                             <div class="col-md-2">
                                 <div class="well">
                                     <h5>Ball Control:</h5>
-                                    <select id="input_ball">
+                                    <select name="input_ball">
+                                        <option value="0"> 0 </option>
                                         <option value="5"> 5</option>
                                         <option value="10"> 10 </option>
                                         <option value="15"> 15 </option>
@@ -141,7 +144,8 @@
                             <div class="col-md-2">
                                 <div class="well">
                                     <h5>Pace Total:</h5>
-                                    <select id="input_pace">
+                                    <select name="input_pace">
+                                        <option value="0"> 0 </option>
                                         <option value="5"> 5</option>
                                         <option value="10"> 10 </option>
                                         <option value="15"> 15 </option>
@@ -153,7 +157,8 @@
                             <div class="col-md-2">
                                 <div class="well">
                                     <h5>Short Passing:</h5>
-                                    <select id="input_pass">
+                                    <select name="input_pass">
+                                        <option value="0"> 0 </option>
                                         <option value="5"> 5</option>
                                         <option value="10"> 10 </option>
                                         <option value="15"> 15 </option>
@@ -166,38 +171,32 @@
                         <p></p>
                         <div class="row">
                             <div class="col-md-12">
-                                <button onclick='prediction()'>Predict</button>
+                                <input type="submit">Predict</input>
                             </div>
                             <p></p>
                             <div class="row">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="well">
-                                            <h5> </h5>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="well">
-                                            <h6>Overall Rating: </h6>
-                                            <p id='new_overall_rating'></p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="well">
-                                            <h6>Value (Eur):</h6>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="well">
-                                            <h6>Wage Eur:</h6>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="well">
-                                            <h6>Release Clause:</h6>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div class="col-lg-12">
+                                    <table class=darkTable style="width: 50%;" border="1" cellpadding="10"
+                                        align=center>
+                                        <tbody>
+                                            <tr>
+                                                <td>Overall Rating</td>
+                                                <td><p id='new_overall_rating'></p></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Value(Eur)</td>
+                                                <td>Value</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wage(Eur)</td>
+                                                <td>Wage</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Release Clause</td>
+                                                <td>Amount</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 <p></p>
                                 <p></p>
                                 <p></p>
@@ -207,6 +206,23 @@
                 </div>
             </div>
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Image element - set the background image for the header in the line below-->
     <div class="py-5 bg-image-full"
         style="background-image: url('https://www.upcomer.com/wp-content/uploads/2021/09/FIFA-22-New.jpg')">
@@ -219,11 +235,30 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <h2>Want to Improve your Overall Ranking?</h2>
+                    <br>
                     <p class="lead">Select your attribute below that you would like to improve on to receive a top
                         industry contact to train with:</p>
-                    <p class="mb-0">Include a drop-down for fake contacts to improve certain attributes.</p>
-                    <p></p>
-                    <p class="mb-0">*Disclaimer: Model does not change related attributes when a individual attributes
+                    <div class="col-md-12">
+                        <div class="well">
+                            <h5>Attribute:</h5>
+                            <select id="selDataset" name='Attribute'>
+                                <option value="Defending"> Defending </option>
+                                <option value="Composure"> Composure </option>
+                                <option value="Positioning"> Positioning </option>
+                                <option value="BallControl"> Ball Control </option>
+                                <option value="PaceTotal"> Pace Total </option>
+                                <option value="ShortPassing"> Short Passing </option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <p> Insert formula here for JSON file of contacts</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p class="mb-0">*Disclaimer: Model does not change related attributes when individual attributes
                         are changed
                     </p>
                 </div>
