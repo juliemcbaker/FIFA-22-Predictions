@@ -90,7 +90,7 @@ The data source for model developement can be found [here](https://www.kaggle.co
 
 * Random Forest Classifier and Random Forest Regressor models were tested
 
-* Random Forest Model Regressor selected based upon high test score (97.5%)
+* Random Forest Model Regressor selected based upon higher test scores
 
 * Additional model research could be performed with other models and parameter adjustments
 
