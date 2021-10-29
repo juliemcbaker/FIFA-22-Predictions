@@ -1,4 +1,4 @@
-# FIFA Player Rating | Overall Rating Prediction ML Application
+# FIFA Player Value |  Value Predictions ML Application
 ## Julie Baker, Lydia Deterding, Aarvin Rathod, Breckin Shoemaker, & Emily Zinn
 
 ![image](https://user-images.githubusercontent.com/83254124/139167113-ee22e84a-633f-493a-b199-bf1aa89d912e.png)
@@ -7,12 +7,12 @@
 ---
 ## Background
 
-Soccer is the most popular sport with a following of about 4 billion worldwide. For that reason, we decided to create a supervised machine learning model that will analyze 34 player attributes to predict a player's overall rating. 
+Soccer is the most popular sport with a following of about 4 billion worldwide. For that reason, we decided to create a supervised machine learning model that will analyze 34 player attributes to predict a player's Overall Rating, Value (Euros), Wage (Euros), and Release Clause (Euros). 
 
 ---
 ## Potential Use Case
 
-We incorporated our model into a webpage with interactive features that will allow a player to adjust specific attributes to see how improving those areas will impact their overall rating score. We then provided them with additional resources based on the areas they are interested in improving. 
+We incorporated our model into a webpage with interactive features that will allow a player to adjust specific attributes to see how improving those areas will impact their overall rating score, value, wage, and release clause predicted amounts. We then provided them with additional resources based on the areas they are interested in improving. 
 
 The data source for model developement can be found [here](https://www.kaggle.com/cashncarry/fifa-22-complete-player-dataset).
 
