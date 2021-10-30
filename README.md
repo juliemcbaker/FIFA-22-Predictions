@@ -30,6 +30,7 @@ The data source for model developement can be found [here](https://www.kaggle.co
 >* HTML
 >* CSS
 >* d3.js
+>* Heroku
 
 
 ---
