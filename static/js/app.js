@@ -24,44 +24,10 @@ function optionChanged(fullname){
     })
 }
 
-function queryFormData(){
-    var form = document.querySelector('#predictForm');
-    var data = new FormData(form);
-
-    var val = document.getElementById("selDataset").value;
-    data.append("playerName",val);
-    fetch('/predict', {
-		method: 'POST',
-		body: data,
-	}).then(function (response) {
-		if (response.ok) {
-			return response.json();
-		}
-		return Promise.reject(response);
-	}).then(function (data) {
-		console.log(data);
-	}).catch(function (error) {
-		console.warn(error);
-	}).then((predictionData)=>{
-        console.log(prediction);
-
-        //do whatever with your data
-    });
-
-}
-
-document.addEventListener('submit', function (event) {
-
-	// Prevent form from submitting to the server
-	event.preventDefault();
-
-	// Do some stuff...
-    queryFormData();
-});
-
 function prediction(){
     console.log(current_stats)
-
+    // d3.json("/predict").then(result=>{
+        
     var age = current_stats["Age"]
     var height = current_stats["Height"]
     var weight = current_stats["Weight"]
@@ -96,21 +62,20 @@ function prediction(){
     var vision = current_stats["Vision"]
     var penalties = current_stats["Penalties"]
     var composure = parseInt(current_stats["Composure"]) + parseInt(d3.select("#input_composure").property('value'))
-    console.log(composure, position, control, shortpass, cross, defendingT)
+
+    var input_array=[age, height, weight, weak_foot, skills, attack, defend, pace, shooting, passing, dribbling, defendingT, physical, cross, heading, shortpass, volleys, curve, accuracy, longpass, control, agility, balance, shot, jumping, stamina, strength, longshot, aggression, intercept, position, vision, penalties, composure]
+    console.log(input_array)
+    var input_string=input_array.toString()
+    console.log(input_string)
+
     // current_stats has 40 elements that are not sorted in the order of the X_train features
     // /prediciton endpoint takes ?param=value&param=value&param=value
-    var query_string=`?Age=${age}&Height=${height}&Weight=${weight}&WeakFoot=${weak_foot}
-                        &SkillMoves=${skills}&AttackingWorkRate=${attack}&DefensiveWorkRate=${defend}
-                        &PaceTotal=${pace}&ShootingTotal=${shooting}&PassingTotal=${passing}
-                        &DribblingTotal=${dribbling}&DefendingTotal=${defendingT}&PhysicalityTotal${physical}
-                        &Crossing${cross}&HeadingAccuracy=${heading}&ShortPassing=${shortpass}
-                        &Volleys=${volleys}&Curve=${curve}&FKAccuracy=${accuracy}&LongPassing=${longpass}
-                        &BallControl=${control}&Agility=${agility}&Balance=${balance}&ShotPower=${shot}
-                        &Jumping=${jumping}&Stamina=${stamina}&Strength=${strength}&LongShots=${longshot}
-                        &Aggression=${aggression}&Interceptions=${intercept}&Positioning=${position}
-                        &Vision=${vision}&Penalties=${penalties}&Composure${composure}`
-
-    d3.json(`/sample/${query_string}`).then(result=>{
+    // var query_string=`?Age=${age}&Height=${height}&Weight=${weight}&WeakFoot=${weak_foot}&SkillMoves=${skills}&AttackingWorkRate=${attack}&DefensiveWorkRate=${defend}&PaceTotal=${pace}&ShootingTotal=${shooting}&PassingTotal=${passing}&DribblingTotal=${dribbling}&DefendingTotal=${defendingT}&PhysicalityTotal${physical}&Crossing${cross}&HeadingAccuracy=${heading}&ShortPassing=${shortpass}&Volleys=${volleys}&Curve=${curve}&FKAccuracy=${accuracy}&LongPassing=${longpass}&BallControl=${control}&Agility=${agility}&Balance=${balance}&ShotPower=${shot}&Jumping=${jumping}&Stamina=${stamina}&Strength=${strength}&LongShots=${longshot}&Aggression=${aggression}&Interceptions=${intercept}&Positioning=${position}&Vision=${vision}&Penalties=${penalties}&Composure=${composure}`
+    // console.log(query_string)
+    d3.json(`/predict/${input_string}`).then(result=>{
         d3.select('#new_overall_rating').text(result['output'])
+        d3.select('#new_overall_value').text(result['output1'])
+        d3.select('#new_overall_wage').text(result['output2'])
+        d3.select('#new_overall_release').text(result['output3'])
     })
 }
