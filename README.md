@@ -93,6 +93,8 @@ The data source for model developement can be found [here](https://www.kaggle.co
 
 * Additional model research could be performed with other models and parameter adjustments
 
+## Visit our application [here](https://fifa-ml.herokuapp.com/)
+# Application Screenshots
+![image](https://user-images.githubusercontent.com/83254124/139539231-57fb4a1f-f845-41d6-8f82-339455767d07.png)
+![image](https://user-images.githubusercontent.com/83254124/139539257-20f2d7d4-64ea-4b86-b511-674e3b682657.png)
 
-# Application Screenshot
-![image](https://user-images.githubusercontent.com/83254124/139167297-c44db091-140c-48a1-960f-6b962f708833.png)
